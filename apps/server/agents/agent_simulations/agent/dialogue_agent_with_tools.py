@@ -68,7 +68,7 @@ class DialogueAgentWithTools(DialogueAgent):
         agent = initialize_agent(
             self.tools,
             self.model,
-            agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
+            agent=AgentType.CHAT_CONVERSATIONAL_XAGENT_DESCRIPTION,
             verbose=True,
             handle_parsing_errors=True,
             memory=memory,

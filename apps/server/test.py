@@ -20,23 +20,23 @@ from langsmith import Client
 
 def agent_factory():
     # llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
-    # tools = get_tools(["SerpGoogleSearch"])
+    tools = get_tools(["SerpGoogleSearch"])
 
-    # return initialize_agent(
-    #     tools,
-    #     llm,
-    #     agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
-    #     verbose=True,
-    #     handle_parsing_errors="Check your output and make sure it conforms!",
-    #     agent_kwargs={
-    #         # "prefix": system_message,
-    #         "system_message": system_message,
-    #         # "format_instructions": FORMAT_INSTRUCTIONS,
-    #         "output_parser": ConvoOutputParser(),
-    #     },
-    #     max_iterations=5,
-    # )
-    pass
+    return initialize_agent(
+        tools,
+        llm,
+        agent=AgentType.CHAT_CONVERSATIONAL_XAGENT_DESCRIPTION,
+        verbose=True,
+        handle_parsing_errors="Check your output and make sure it conforms!",
+        agent_kwargs={
+            # "prefix": system_message,
+            "system_message": system_message,
+            # "format_instructions": FORMAT_INSTRUCTIONS,
+            "output_parser": ConvoOutputParser(),
+        },
+        max_iterations=5,
+    )
+    
 
 
 agent = agent_factory()

@@ -1,5 +1,7 @@
 import asyncio
 
+from xagent import XAgent
+
 from langchain import hub
 from langchain.agents import (AgentExecutor, AgentType, create_react_agent,
                               initialize_agent)
@@ -86,7 +88,8 @@ class ConversationalAgent(BaseAgent):
 
             agentPrompt = hub.pull("hwchase17/react")
 
-            agent = create_react_agent(llm, tools, prompt=agentPrompt)
+            agent = XAgent(llm=llm, tools=tools, system_message=system_message)
+
 
             agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
